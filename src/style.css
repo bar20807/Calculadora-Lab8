@@ -1,80 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&family=Trocchi&display=swap');
-
-* {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+*, *::before, *::after{
+    box-sizing: border-box;
 }
 
 body{
-    display: flex;
+    background: linear-gradient(to right, red,blue, yellow);
+}
+
+.App{
+    height: 100vh;
+    width: 100%;
+}
+
+.calculator-grid{
+    display: grid;
     justify-content: center;
     align-items: center;
+    min-height: 80vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(80px,auto) repeat(5,100px);
 }
 
-.container{
-    top: 30%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    margin: 0 auto;
-    width: 256px;
-    text-align: center;
-    border: 10px solid #101116;
-    background: #101116;
-    border-radius: 5px;
-}
-
-.keypad{
-    display: grid;
-    grid-template-columns: repeat(4,fr) ;
-    grid-auto-rows: minmax(60px,auto);
-}
-
-input [type="text"]{
-    height: 75px;
-    width: 249px;
-    background-color: #10111600;
-    border: 0px;
-    color: #ffff;
-    text-align: right;
-    font-weight: 500;
-    font-size: 25px;
-    letter-spacing: 1px;
-}
-
-#clear{
-    grid-column: 1/3;
-    grid-row: 1;
-    color: #262834;
-}
-
-#result {
-    grid-column: 3/5;
-    grid-row: 5;
-    color: #262834;
-}
-
-#backspace{
-    color: #262834;
-}
-
-button{
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
+.calculator-grid > button {
+    border-radius: 1rem;
     cursor: pointer;
-    background: #262834;
-    color: #ffff;
-    font-weight: 500;
-}
-input:focus,
-input:active,
-button:focus,
-button:active{
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    border: 1px solid white;
     outline: none;
+    background-color: #fafafa75;
+    margin: 3px;
 }
 
-.highlight{
-    background: #56cbdb;
-    
+.calculator-grid > button:hover{
+    background-color: #fafafa;
+}
+
+.span-two{
+    grid-column: span 2;
+
+}
+
+.output{
+    grid-column: 1 / -1;
+    margin-bottom: .5rem;
+    background-color: white;
+    display: flex;
+    border-radius: 1rem;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.App .Title{
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding:  10px;
+}
+
+.output .previous-operand{
+    color: black 90;
+    font-size: 1.5rem;
+
+}
+
+.output .current-operand{
+    color: #f78e79;
+    font-size: 2.5rem;
 }
